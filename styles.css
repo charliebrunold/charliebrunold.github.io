@@ -1,0 +1,269 @@
+/* Use the styles.css file to update styling for the webpage without having to touch the html code. */
+
+:root {
+    --background: #F0F7EE;
+    --header-background: #133c55;
+    --text: #333333;
+    --accent: #6599BB;
+    --accent-light: #a7c5eb;
+    --border: #9C7178;
+}
+
+/* Set a pleasant background color for the webpage. */
+body {
+    background-color: var(--background);
+    font-family: "Lato", "Helvetica Neue", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: var(--accent)
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+/* Style the header specifically */
+header {
+    background-color: var(--header-background);
+    color: var(--text);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+}
+
+header h1 {
+    float: left;
+    margin: 0; /* remove the defauly margin from the H1 */
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    max-height: none;
+    opacity: 1;
+    transition: none;
+    list-style: none; /* remove the bullets from the list */
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block; /* place items side by side */
+    margin-right: 15px;
+}
+
+nav a {
+    color: var(--background); /* white text for links */
+    text-decoration: none; /* remove underlines */
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline; /* underline links of hover */
+}
+
+/* style the main content area */
+main {
+    padding: 20px; 
+}
+
+main h2 {
+    margin-top: 0;
+}
+
+/* Add some spacing around each section */
+section {   
+    background-color: #ffffff; /* white background to make it stand out */
+    padding: 30px; /* remember the box model */
+    margin-bottom: 20px; /* add space AFTER each section */
+    border: 2px solid #ccc; /* add a light gray border around each section */
+    border-radius: 5px; /* slightly round the border corners for styling */
+}
+
+/* Adjust headings INSIDE sections for consistency on page */
+section h2 {
+    margin-top: 0; /* Aleady set before, just reaffirming */
+    margin-bottom: 10px;
+}
+
+/* Improve the readability of the paragraph text */
+section p {
+    line-height: 1.5; /* increases the space between lines of text */
+}
+
+/* style the footer */
+footer {
+    background-color: #333;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* two column display for projects on larger screens */
+#projects {
+    display: block;
+    gap: 20px; /* space between the project cards */
+}
+
+/* Style specifically for the project cards class, using the dot operator (.) */
+.project-card {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 25px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1; /* each project takes up equal space */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card h3 {
+    margin-top: 0; /* Start the heading flush with the top of the card */
+    text-align: center;
+}
+
+.project-card img {
+    display: block; /* ensures the image starts on a new line */
+    margin: 0 auto 10px auto;
+    margin-bottom: 10px; /* space BELOW the image */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px; /* slightly rounded corners */
+    max-width: 100%; /* ensures the image does not overflow its container */
+    height: auto; /* maintain a consistent aspect ratio */
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.filter-button {
+    padding: 10px, 20px;
+    background-color: var(--accent-light);
+    border: 2px solid var(--accent);
+    border-radius: 5px;
+    color: var(--text);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.filter-button:hover {
+    background-color: var(--accent);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.filter-button.active {
+    background-color: var(--accent);
+    color: #fff;
+    border-color: var(--accent-light);
+}
+
+/* Special styling for the ABOUT section using its ID with the # operator */
+#about {
+    background-color: #e9f5ff;
+    border-color: #b3d4f5; /* a slightly different border color */
+}
+
+/* default styles: show nav links, hide the hamburger */
+#menu-toggle {
+    float: right;
+    margin-left: auto;
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* matches the header text color */
+    padding: 10px;
+    border-radius: 3px;
+}
+
+/* on hover, give the hamburger button a slight background */
+#menu-toggle:hover {
+    background: #444;
+}
+
+/* media query for screens smaller than 600px */
+/* this means: apply the following CSS ONLY WHEN the screen width is 600px or less */
+@media (max-width: 600px) {
+    nav ul {
+        display: block; /* remove the display; none; and rely on max-height to manage the visibility instead (for animation) */
+        max-height: 0; /* when the nav is not open, max-height: 0; keeps it collapsed and hidden */
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    nav.open ul {
+        display: block;
+        background: #444;
+        padding: 10px 20px; /* horizontal and vertical padding */
+        border-radius: 5px; /* softly rounded corners */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* a subtle shadow for depth */
+        max-height: 300px; /* a height large enough to show all nav items */
+        opacity: 1;
+    }
+
+    nav.open li a {
+        display: block;
+        padding: 10px 0; /* each link gets vertical spacing */
+        color: #fff; /* ensure the text is visible on dark background */
+        font-size: 18px; /* make the text slightly larger for mobile tap targets */
+        text-decoration: none;
+    }
+    
+    nav.open li a:hover {
+        color: #bbb; /* slight hover background to indicate interactivity */
+        border-radius: 3px; /* match the overall rounded theme */
+    }
+    
+    nav.open a {
+        display: block;
+        padding: 5px 0;
+    }
+
+    #menu-toggle {
+        display: inline-block; /* show the hamburger icon */
+    }
+
+    /* we might also want to adjust headings or padding at smaller sizes */
+    header h1 {
+        font-size: 20px;
+    }
+}
+
+/* when a class "open" is applied to the nav, show the link again */
+nav.open ul { /* when the nav is open on small screens */
+    display: flex;
+    max-height: none;
+    opacity: 1;
+}

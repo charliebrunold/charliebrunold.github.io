@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <!-- <head> tag contains meta-information about the page (not directly visible to the user) -->
+        <!-- <meta> tags include settings to apply to the page as a whole -->
+        <!-- charset ensures that the page can display a wide range of characters, name and content ensures that the site is mobile-responsive by telling the broser how to scale the page on devices. -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <title> tag sets the tab's title when someone visits the site -->
+        <title>Charlie's Portfolio</title>
+        <link rel="stylesheet" href="styles.css"> <!-- link to the css stylesheet -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>Charlie Brunold</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        </header>
+
+        <main>
+            <section id="about">
+                <h2>About Me</h2>
+                <p>My name is Charlie Brunold, and I love computers!</p>
+            </section>
+
+            <section id="projects">
+                <h2>My Projects</h2>
+                <div class="project-card" data-category="data-analytics machine-learning">
+                    <h3>Project One</h3>
+                    <img src="images/project1.jpg" alt="Screenshot of Project One" width="300">
+                    <p>A brief description of Project One. Later, I will include more information and an image.</p>
+                    <p class="more-info" style="display: none;">
+                        Here is some additional information about Project One that you can open using a button with JavaScript. 
+                    </p>
+                    <button id="more-info-button">Show More Info</button>
+                </div>
+
+                <div class="project-card" data-category="machine-learning">
+                    <h3>Project Two</h3>
+                    <p>A brief description of Project Two. I can showcase a screenshot or other supplementary materials.</p>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-button active" data-filter="all">All</button>
+                    <button class="filter-button" data-filter="data-analytics">Data Analytics</button>
+                    <button class="filter-button" data-filter="machine-learning">Machine Learning</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Charlie Brunold. All rights reserved.</p>
+        </footer>
+        <script src="script.js"></script> <!-- placing at the bottom ensures that the main content loads before the javascript runs. This helps avoid errors if the script references elemtns that haven't been loaded yet. -->
+    </body>
+</html>
