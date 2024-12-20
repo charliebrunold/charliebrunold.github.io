@@ -244,6 +244,24 @@ footer {
     border-color: var(--accent-light);
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.social-links a {
+    color: #ffffff; /* default icon color */
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #b6b6b6;
+}
+
 /* Special styling for the ABOUT section using its ID with the # operator */
 #about {
     background-color: #e9f5ff;
