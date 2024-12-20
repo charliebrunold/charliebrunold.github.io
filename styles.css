@@ -287,6 +287,56 @@ footer {
     background: #444;
 }
 
+#tools-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35%;
+    position: relative;
+  }
+  .carousel {
+    width: 100vw;
+    height: 35vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+  }
+  .icon {
+    /* padding: 0.5rem; */
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+  .icon > small {
+    margin-top: 0.5em;
+    color: gray;
+  }
+  .carousel .icon {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s linear;
+    transition: transform 1s ease-out;
+  }
+
 /* media query for screens smaller than 600px */
 /* this means: apply the following CSS ONLY WHEN the screen width is 600px or less */
 @media (max-width: 600px) {
