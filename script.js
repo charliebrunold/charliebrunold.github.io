@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     projectCards.forEach(card => {
+        const categoryContainer = card.querySelector('.project-categories');
         const categories = card.getAttribute('data-category').split(' ');
 
         if (defaultFilter === 'all' || categories.includes(defaultFilter)) {
@@ -43,6 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
             card.style.display = 'none';
             card.style.opacity = '0';
         }
+
+        categories.forEach(category => {
+            const categoryElement = document.createElement('span');
+            categoryElement.classList.add('project-category');
+            categoryElement.textContent = category.replace('-', ' '); // replaces dashes with spaces as needed
+            categoryContainer.appendChild(categoryElement);
+        });
     });
 
     filterButtons.forEach(button => {
