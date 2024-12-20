@@ -172,13 +172,46 @@ footer {
 }
 
 .project-category {
-    background-color: var(--accent-light);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(60deg, var(--accent-light), var(--accent)); /* gradient background */
     color: #ffffff;
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 12px;
     white-space: nowrap;
     text-transform: capitalize;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+}
+
+.project-category[data-category="data-analytics"] {
+    background: linear-gradient(60deg, #1E88E5, #4298e4) !important;
+    color: #ffffff;
+}
+
+.project-category[data-category="machine-learning"] {
+    background: linear-gradient(60deg, #43A047, #5ca15f) !important;
+    color: #ffffff;
+}
+
+.project-category:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.project-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* start outside of the badge */
+    width: 150%; /* large enough to cover the badge diagonally */
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-45deg); /* skew for shimmer effect */
+    animation: shimmer 3.5s infinite alternate ease-in-out;
 }
 
 .filter-buttons {
@@ -282,6 +315,15 @@ footer {
     /* we might also want to adjust headings or padding at smaller sizes */
     header h1 {
         font-size: 20px;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%
     }
 }
 

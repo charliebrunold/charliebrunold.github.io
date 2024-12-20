@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         categories.forEach(category => {
             const categoryElement = document.createElement('span');
             categoryElement.classList.add('project-category');
+            categoryElement.setAttribute('data-category', category);
             categoryElement.textContent = category.replace('-', ' '); // replaces dashes with spaces as needed
             categoryContainer.appendChild(categoryElement);
         });
